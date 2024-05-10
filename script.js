@@ -1,29 +1,37 @@
+// Замените 'API_KEY' на ваш ключ API и 'SHEET_ID' на ID таблицы Google Sheets
+const API_KEY = 'ВАШ_КЛЮЧ_API';
+const SHEET_ID = 'ВАШ_ID_ТАБЛИЦЫ';
+
 function showRegistration() {
-    // Скрыть главную страницу и показать страницу регистрации
-    document.getElementById("main-screen").style.display = "none";
+    document.getElementBy саггер.main-screen").style.display = "none";
     document.getElementById("registration-screen").style.display = "block";
 }
 
 function submitRegistration(event) {
     event.preventDefault();
 
-    // Получить данные формы
     const form = document.getElementById("registration-form");
     const formData = new FormData(form);
     const name = formData.get("name");
     const email = formData.get("email");
     const password = formData.get("password");
 
-    // Отправить данные формы на сервер или API для сохранения в базу данных
-    // Поскольку GitHub Pages не поддерживает серверной части, используйте сторонний API или сервис
-    // Например, вы можете использовать Fetch API для отправки данных
+    // Данные для отправки в Google Sheets
+    const data = {
+        range: 'A:C', // Замените на соответствующий диапазон в таблице
+        majorDimension: 'ROWS',
+        values: [
+            [name, email, password]
+        ]
+    };
 
-    fetch('https://api.example.com/registration', {
+    // Используйте API Key для аутентификации и отправки данных в Google Sheets
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/A:C:append?valueInputOption=USER_ENTERED&key=${API_KEY}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify(data)
     })
     .then(response => {
         if (response.ok) {
