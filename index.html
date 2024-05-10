@@ -1,37 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Привет!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Site</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для контейнера */
+        #main {
+            width: 100%;
+            max-width: 600px; /* Максимальная ширина контейнера */
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Стили для изображения */
+        img {
+            max-width: 100%; /* Изображение не будет шире контейнера */
+            height: auto; /* Высота автоматически адаптируется */
+            object-fit: contain; /* Изображение полностью показывается в контейнере */
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Главная страница -->
-    <div id="main-screen">
-        <h1>Добро пожаловать на мой сайт!</h1>
-        <button onclick="showRegistration()">Регистрация</button>
+    <div id="main">
+        <h1>Дайте денег</h1>
+        <img src="https://100tails.ru/wp-content/uploads/2022/06/red-youtube-logo-png-xl.png" alt="YouTube Logo">
+        <p>Как это делать</p>
+        <button id="buy">Купить</button>
+
+        <div id="user-info">
+            <p>Введите ваши данные:</p>
+            <input type="text" id="name" placeholder="Имя">
+            <input type="number" id="age" placeholder="Возраст">
+            <button id="submit-info">Заполнил</button>
+        </div>
     </div>
 
-    <!-- Страница регистрации -->
-    <div id="registration-screen" style="display: none;">
-        <h2>Регистрация</h2>
-        <form id="registration-form" onsubmit="submitRegistration(event)">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required><br>
-            <button type="submit">Зарегистрироваться</button>
-        </form>
-    </div>
+    <script>
+        document.getElementById("submit-info").addEventListener("click", function() {
+            // Получение значения из полей ввода
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
 
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="script.js"></script>
+            // Создание объекта данных для отправки на сервер
+            const data = {
+                name: name,
+                age: age
+            };
+
+            // Отправка данных на сервер с помощью fetch
+            fetch("/submit-info", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                // Проверка статуса ответа
+                if (!response.ok) {
+                    throw new Error(`Статус ответа: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Данные успешно отправлены:", data);
+                alert("Данные успешно отправлены!");
+            })
+            .catch(error => {
+                console.error("Ошибка отправки данных:", error);
+                alert(`Ошибка отправки данных: ${error.message}`);
+            });
+        });
+
+    </script>
 </body>
 
 </html>
