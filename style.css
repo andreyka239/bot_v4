@@ -1,29 +1,100 @@
-/* Добавьте свой стиль */
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
-h1, h2 {
-    color: #333;
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    weight: auto
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+}
+
+h3 {
+
 }
 
 button {
     padding: 10px 20px;
     margin: 10px;
-    background-color: #4CAF50;
-    color: white;
     border: none;
     border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
 }
 
-form {
-    display: inline-block;
-    text-align: left;
+.button:hover {
+    background-color: #45a049;
 }
 
-label, input {
-    margin-bottom: 10px;
-    display: block;
+.directions {
+    display: none;
+}
+
+.direction {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.direction h2 {
+    color: #333;
+}
+
+.options {
+    margin-top: 20px;
 }
