@@ -36,11 +36,10 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    height: 100%;
 }
 
 .container {
@@ -51,11 +50,13 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
+
     justify-content: center;
     align-items: center;
     overflow: hidden; /* контент не будет выходить за пределы окна */
 }
+
+
 
 
 h1 {
