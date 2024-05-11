@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Site</title>
-    <link rel="stylesheet" href="style.css">
+    <title>JasonBot</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Главная страница -->
-    <div id="main-screen">
-        <h1>Добро пожаловать на мой сайт!</h1>
-        <button onclick="showRegistration()">Регистрация</button>
-    </div>
-
-    <!-- Страница регистрации -->
-    <div id="registration-screen" style="display: none;">
-        <h2>Регистрация</h2>
-        <form id="registration-form" onsubmit="submitRegistration(event)">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required><br>
-            <button type="submit">Зарегистрироваться</button>
-        </form>
+    <div class="container">
+        <h1 >Привет!</h1>
+        <br>
+        <h3>Ты по адресу ведь JasonBot может все, ну или почти все, что связано с автоматизацией Телеграм-каналов, все 3 направления ему по плечу:</h3>
+        <button id="directionsBtn">Узнать направления</button>
+        <div id="directions" class="directions">
+            <div class="direction">
+                <h2>постинг:</h2>
+                <p>для ведения каналов и чатов: расписание постов, отложенные публикации, все виды кнопок, реакции, возможность редактирования постов</p>
+            </div>
+            <div class="direction">
+                <h2>продажа рекламы:</h2>
+                <p>планирование и автоудаление публикаций, отслеживание статистики (охваты, стоимость рекламы)</p>
+            </div>
+            <div class="direction">
+                <h2>закуп рекламы:</h2>
+                <p>создавайте креативы с автоматически сгенерированной ссылкой, отправляйте админу канала для размещения и отслеживайте статистику размещения. бот автоматически рассчитает стоимость размещения по CPM, количество и цену подписчика и внесет данные в гугл-таблицу</p>
+            </div>
+        </div>
+        <div class="options">
+            <button id="createBotBtn">Создать своего JasonBota</button>
+            <button id="pricingBtn">Узнать об условиях использования и тарифах</button>
+            <button id="myBotsBtn">Мои боты</button>
+            <button id="delegatedBotsBtn">Делегированные боты</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
